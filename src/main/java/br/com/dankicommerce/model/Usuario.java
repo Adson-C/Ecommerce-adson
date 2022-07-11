@@ -13,7 +13,7 @@ public class Usuario extends Model {
 	
 	
 	@NotEmpty
-	@Size(min = 3, max = 100)
+	@Size(min = 3, max = 100, message = "{usuario.nome.size}")
 	private String nome;
 	
 	@NotEmpty
