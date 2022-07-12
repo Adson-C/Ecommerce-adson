@@ -10,6 +10,7 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.IncludeParameters;
+import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.dankicommerce.model.Usuario;
 import br.com.olimposistema.aipa.dao.DAO;
@@ -31,9 +32,11 @@ public class CadastrarController {
 
 	@IncludeParameters 
 	@Post("salvaUsuario")
-	public void salvaUsuario(@Valid Usuario usuario) {
+	public void salvaUsuario(@Valid Usuario usuario, String confirmaSenha) {
 		
 		/* result.include("usuario", usuario); */
+		boolean asSenhasSaoIguais = usuario.getSenha().equals(confirmaSenha);
+		validator.ensure(asSenhasSaoIguais, new SimpleMessage("erro", "As Confirmação de senha esta diferente."));
 		validator.onErrorRedirectTo(this).cadastrar();
 		usuarioDao.insert(usuario);
 		/* em.persist(usuario); */
