@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -68,7 +72,7 @@
                 <select class="form-control" id="email" required="required"
                   data-validation-required-message="Please enter your email address.">
                   <option>Roupas</option>
-                  <option>Acessórios</option>
+                  <option>AcessÃ³rios</option>
                 </select>
                 <p class="help-block text-danger"></p>
               </div>
@@ -125,10 +129,10 @@
                         Camisa Polo Basica
                       </p>
                       <p>
-                        A camisa polo possui algumas qualidades e a maior delas sem d�vidas s�o a sua versatilidade, pois voc� consegue usa-las  em ambientes extremamente informais, como em ambientes  um pouco mais formais. Ent�o, esse tipo de camisa transita bem entre os dois, afinal ela est� no meio do caminho entre o formal e o informal, entre uma camiseta e uma camisa social.
+                        A camisa polo possui algumas qualidades e a maior delas sem dúvidas são a sua versatilidade, pois você consegue usa-las  em ambientes extremamente informais, como em ambientes  um pouco mais formais. Então, esse tipo de camisa transita bem entre os dois, afinal ela está no meio do caminho entre o formal e o informal, entre uma camiseta e uma camisa social.
                       </p>
                       <ul class="list-inline">
-                        <li>Valido Até: 01/03/2021</li>                     
+                        <li>Valido AtÃ©: 01/03/2021</li>                     
                       </ul>
                       <div class="d-flex justify-content-center">
                         <div class="form-group mb-md-0 ml-2">
@@ -246,7 +250,7 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-4 text-lg-left">
-          Copyright � Adson-Commerce 2021
+          Copyright © Adson-Commerce 2021
         </div>
         <div class="col-lg-4 my-3 my-lg-0">
           <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
