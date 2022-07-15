@@ -13,6 +13,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.IncludeParameters;
 import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
+import br.com.dankicommerce.dao.UsuarioDAO;
 import br.com.dankicommerce.model.Usuario;
 import br.com.olimposistema.aipa.dao.DAO;
 
@@ -22,7 +23,7 @@ public class LoginController {
 	
 	@Inject Result result;
 	@Inject Validator validator;
-	@Inject DAO<Usuario> usuarioDao; // buscar usuario cadastrado no banco de dados
+	@Inject UsuarioDAO usuarioDao; // buscar usuario cadastrado no banco de dados
 	
 	@Get("")
 	public void login() {

@@ -1,5 +1,6 @@
 package br.com.dankicommerce.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.Size;
 
@@ -18,6 +19,7 @@ public class Usuario extends Model {
 	
 	@NotEmpty
 	@Email
+	@Column(unique = true)
 	private String email;
 	
 	@NotEmpty
@@ -30,6 +32,7 @@ public class Usuario extends Model {
 	public void setNome(String nome) {
 		this.nome = nome.toUpperCase();
 	}
+	
 	public String getEmail() {
 		return email;
 	}
