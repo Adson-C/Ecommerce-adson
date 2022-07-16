@@ -1,6 +1,7 @@
 package br.com.dankicommerce.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -23,10 +24,11 @@ public class LoginController {
 	@Inject Result result;
 	@Inject Validator validator;
 	@Inject UsuarioDAO usuarioDao; // buscar usuario cadastrado no banco de dados
+	@Inject HttpSession session; 
 	
 	@Get("")
 	public void login() {
-		// vai cair aqui
+		
 	}
 	
 	@IncludeParameters
@@ -36,11 +38,13 @@ public class LoginController {
 		
 		validator.onErrorRedirectTo(this).login();
 		
-		Usuario usuarioExistente =  usuarioDao.existeUsuarioCom(email, senha);
+		Usuario usuario =  usuarioDao.existeUsuarioCom(email, senha);
 		
+		validator.addIf(usuario == null, new SimpleMessage("error", "Email ou Senha Invalidos !"));
 		validator.onErrorRedirectTo(this).login();
 		
-		validator.addIf(usuarioExistente == null, new SimpleMessage("error", "Email ou Senha Invalidos !"));
+		session.setAttribute("usuarioLogado", usuario);
+		
 		
 		result.redirectTo(ProdutosController.class).produtos();
 	}

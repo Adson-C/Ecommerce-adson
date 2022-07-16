@@ -46,7 +46,7 @@ pageEncoding="UTF-8"%>
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nome</th>
-                        <th scope="col">AÃ§Ãµes</th>
+                        <th scope="col">Acões</th>
                       </tr>
                     </thead>
                     <tbody>
