@@ -15,7 +15,6 @@ import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.dankicommerce.dao.UsuarioDAO;
 import br.com.dankicommerce.model.Usuario;
-import br.com.olimposistema.aipa.dao.DAO;
 
 @Controller
 @Path("login")
