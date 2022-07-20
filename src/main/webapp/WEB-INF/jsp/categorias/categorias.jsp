@@ -43,6 +43,7 @@ pageEncoding="UTF-8"%>
                 </button>
                 <table class="table table-hover">
                     <thead>
+                    
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nome</th>
@@ -50,42 +51,25 @@ pageEncoding="UTF-8"%>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Acessórios</td>
-                        <td>
-                            <button title="Editar" onclick="window.location.href='formcategoria.html'" class="btn btn-info" type="button">
-                                <i class="fas fa-edit"></i>   
-                            </button>
-                            <button title="Excluir" class="btn btn-danger" type="button">
-                                <i class="fas fa-trash"></i>    
-                            </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Roupas</td>
-                        <td>
-                            <button title="Editar" onclick="window.location.href='formcategoria.html'" class="btn btn-info"  type="button">
-                                <i class="fas fa-edit"></i>   
-                            </button>
-                            <button title="Excluir" class="btn btn-danger" type="button">
-                                <i class="fas fa-trash"></i>    
-                            </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Eletrônicos</td>
-                        <td>
-                            <button title="Editar" onclick="window.location.href='formcategoria.html'" class="btn btn-info"  type="button">
-                                <i class="fas fa-edit"></i>   
-                            </button>
-                            <button title="Excluir"  class="btn btn-danger"  type="button">
-                                <i class="fas fa-trash"></i>    
-                            </button>
-                        </td>
-                      </tr>
+                    
+		            <c:forEach var="categoria" items="${categorias}">
+
+						<tr>
+							<th scope="row">${categoria.id }</th>
+							<td>${categoria.nome }</td>
+							<td>
+								<button title="Editar"
+									onclick="window.location.href='formcategoria.html'"
+									class="btn btn-info" type="button">
+									<i class="fas fa-edit"></i>
+								</button>
+								<button title="Excluir" class="btn btn-danger" type="button">
+									<i class="fas fa-trash"></i>
+								</button>
+							</td>
+						</tr>
+					</c:forEach>
+                      
                     </tbody>
                   </table>
             </div>
