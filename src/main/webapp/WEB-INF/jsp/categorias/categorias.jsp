@@ -63,8 +63,7 @@ pageEncoding="UTF-8"%>
 									class="btn btn-info" type="button">
 									<i class="fas fa-edit"></i>
 								</button>
-								<button title="Excluir" class="btn btn-danger" type="button">
-									<i class="fas fa-trash"></i>
+								<button title="Excluir" onclick="window.location.href='deletacategoria/${categoria.id }'" class="btn btn-danger" type="button"> <i class="fas fa-trash"></i>
 								</button>
 							</td>
 						</tr>
