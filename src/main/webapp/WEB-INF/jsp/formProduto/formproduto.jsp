@@ -69,10 +69,14 @@ pageEncoding="UTF-8"%>
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-group">
-                        <select class="form-control input-login mx-auto" id="email" required="required"
+                        <select name="produto.categoria.id" class="form-control input-login mx-auto" id="email" required="required"
                           data-validation-required-message="Please enter your email address.">
-                          <option>Roupas</option>
-                          <option>Acessórios</option>
+                          
+                          <c:forEach var="categoria" items="${categorias }">
+	 					    <option value="${categoria.id }">${categoria.nome }</option>      
+	 					                       
+                          </c:forEach>
+                          
                         </select>
                         <p class="help-block text-danger"></p>
                     </div>
