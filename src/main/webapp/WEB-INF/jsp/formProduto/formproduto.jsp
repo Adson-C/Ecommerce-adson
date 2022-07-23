@@ -39,46 +39,56 @@ pageEncoding="UTF-8"%>
                     <h2 class="section-heading text-uppercase">Novo Produto/Editar Produto</h2>
                     
                 </div>
-                <form>
-                    <div class="row justify-content-md-center mb-5 text-center">
-                        <div class="col-md-12 align-self-center text-center">
-                            <div class="form-group input-login mx-auto">
-                                <input id="input-id" type="file" class="file" data-preview-file-type="text">
-                                 <p class="help-block text-danger"></p>
-                             </div>
-                            <div class="form-group input-login mx-auto">
-                                <input class="form-control" id="email" type="text" placeholder="Nome *" required="required" data-validation-required-message="Digite o Nome do Produto." />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group input-login mx-auto">
-                                <input class="form-control money" id="valor" type="tel" placeholder="Valor em R$*" required="required" data-validation-required-message="Digite o Valor do Produto." />                            
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group input-login mx-auto">
-                               <textarea class="form-control" placeholder="Descreva o Produto"></textarea>
-                               </textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group">
-                                <select class="form-control input-login mx-auto" id="email" required="required"
-                                  data-validation-required-message="Please enter your email address.">
-                                  <option>Roupas</option>
-                                  <option>Acessórios</option>
-                                </select>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group input-login mx-auto">
-                                <input class="form-control date-br" id="valor" type="date" placeholder="Data Validade *" required="required" data-validation-required-message="Digite a data de Validade do Produto" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                           
-                            <button class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" >Salvar</button>
-                        </div> 
+                
+                <c:if test="${not empty errors}">
+                	<div class="alert alert-danger" role="alert">
+						<c:forEach var="error" items="${errors}">
+							${error.message}<br/>
+						</c:forEach>
+                	</div>
+                </c:if>
+                
+                
+<form method="post" action="<c:url value="formproduto/salvaProduto"/>">
+            <div class="row justify-content-md-center mb-5 text-center">
+                <div class="col-md-12 align-self-center text-center">
+                    <div class="form-group input-login mx-auto">
+                        <input id="input-id" type="file" class="file" data-preview-file-type="text">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                    <div class="form-group input-login mx-auto">
+                        <input name="produto.nome" value="${produto.nome }" class="form-control" id="email" type="text" placeholder="Nome *" required="required" data-validation-required-message="Digite o Nome do Produto." />
+                        <p class="help-block text-danger"></p>
                     </div>
-                </form>
+                    <div class="form-group input-login mx-auto">
+                        <input name="produto.valor" value="${produto.valor }" class="form-control money" id="valor" type="tel" placeholder="Valor em R$*" required="required" data-validation-required-message="Digite o Valor do Produto." />                            
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="form-group input-login mx-auto">
+                       <textarea name="produto.descricao" class="form-control" placeholder="Descreva o Produto">${produto.descricao }</textarea>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control input-login mx-auto" id="email" required="required"
+                          data-validation-required-message="Please enter your email address.">
+                          <option>Roupas</option>
+                          <option>Acessórios</option>
+                        </select>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="form-group input-login mx-auto">
+                        <input class="form-control date-br" id="valor" type="date" placeholder="Data Validade *" data-validation-required-message="Digite a data de Validade do Produto" />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                   
+                    <button type="submit" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" >Salvar</button>
+                </div> 
             </div>
-        </section>
-    
+        </form>
+        
+    </div>
+</section>
+  
         <!-- Footer-->
         <tag:footer></tag:footer>
         <!-- Bootstrap core JS-->

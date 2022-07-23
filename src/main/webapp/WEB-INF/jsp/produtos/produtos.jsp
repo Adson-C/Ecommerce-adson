@@ -35,6 +35,7 @@ pageEncoding="UTF-8"%>
   <section class="page-section bg-light" id="portfolio">
     <div class="container">
       <div>
+      
         <form>
           <div class="row mb-5">
             <div class="col-md-6">
@@ -61,11 +62,12 @@ pageEncoding="UTF-8"%>
             </div>
           </div>
           <div class="row mb-2 ml-1">
-            <button title="Editar" onclick="window.location.href='formproduto.html#formproduto'" class="btn btn-success mb-3"  type="button">
+            <button title="Editar" onclick="window.location.href='formproduto'" class="btn btn-success mb-3"  type="button">
                 <i class="fas fa-plus mr 1"></i>
                 Novo Produto
             </button>
           </div>
+          
         </form>
       </div>
       <div class="row">
