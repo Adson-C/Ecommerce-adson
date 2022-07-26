@@ -1,5 +1,6 @@
 package br.com.dankicommerce.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.persistence.CascadeType;
@@ -17,6 +18,7 @@ import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.dankicommerce.rn.ConverteDataDeEnParaCalendar;
+import br.com.dankicommerce.rn.FormataDeDoubleParaReais;
 import br.com.olimposistema.aipa.imagem.Imagem;
 import br.com.olimposistema.aipa.model.Model;
 
@@ -61,6 +63,13 @@ public class Produto extends Model {
 	public Calendar getDataValidade() {
 		return dataValidade;
 	}
+	
+	public String getDataValidadeFormtada() {
+		
+		String dataformatada = new SimpleDateFormat("dd/MM/yyyy").format(dataValidade.getTime());
+		
+		return dataformatada;
+	}
 
 	public void setDataValidade(Calendar dataValidade) {
 		this.dataValidade = dataValidade;
@@ -95,10 +104,18 @@ public class Produto extends Model {
 	public Double getValor() {
 		return valor;
 	}
+	
+	public String getValorMoney() {
+		
+		String valorFormatado = new FormataDeDoubleParaReais().executa(valor);
+		
+		return valorFormatado;
+	}
 
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
+	
 
 	public String getNome() {
 		return nome;
