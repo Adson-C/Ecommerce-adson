@@ -6,6 +6,7 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.interceptor.IncludeParameters;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.dankicommerce.model.Categoria;
 import br.com.dankicommerce.model.Produto;
@@ -20,10 +21,20 @@ public class ProdutosController {
 	@Inject DAO<Categoria> categoriaDao ;
 	@Inject Validator validator;
 	
+	@IncludeParameters
 	@Get("")
-	public void produtos() {
+	public void produtos(Produto filtro) {
 		
-		result.include("produtos", produtoDao.selectAll());
+		result.include("categorias", categoriaDao.selectAll());
+		
+		
+		if(filtro != null) {
+			result.include("produtos", produtoDao.filter(filtro));
+		}
+		else {
+			result.include("produtos", produtoDao.selectAll());
+		}
+		
 	}
 
 }

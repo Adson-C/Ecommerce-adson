@@ -43,7 +43,7 @@ public class CadastrarController {
 		usuarioDao.insert(usuario);
 		session.setAttribute("usuarioLogado", usuario);
 		/* em.persist(usuario); */
-		result.redirectTo(ProdutosController.class).produtos();
+		result.redirectTo(ProdutosController.class).produtos(null);
 		
 	}
 
