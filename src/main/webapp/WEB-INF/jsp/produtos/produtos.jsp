@@ -152,6 +152,9 @@ pageEncoding="UTF-8"%>
 			</c:forEach>
 
       </div>
+      
+      <p> Total de Produtos: ${totalProdutos }</p>
+      
     </div>
   </section>
 

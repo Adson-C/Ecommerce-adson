@@ -28,12 +28,19 @@ public class ProdutosController {
 		
 		result.include("categorias", categoriaDao.selectAll());
 		
-		result.include("produtos", produtoDao.buscaTodosNomeProdOrdenado());
 		
-		/*
-		 * if(filtro != null) { result.include("produtos", produtoDao.filter(filtro)); }
-		 * else { result.include("produtos", produtoDao.selectAll()); }
-		 */
+		result.include("totalProdutos", produtoDao.totalProdutos());
+		
+		
+		  if(filtro != null) {  
+			  
+			  result.include("produtos", produtoDao.filter(filtro));
+			  result.include("totalProdutos", produtoDao.filterTotal(filtro));
+		  
+		  }
+		  else {
+			  result.include("produtos", produtoDao.selectAll()); }
+		 
 	}
 
 }
